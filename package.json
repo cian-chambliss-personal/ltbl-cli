@@ -1,0 +1,22 @@
+{
+  "name": "ltbl-cli",
+  "version": "0.0.10",
+  "description": "Launch ltbl-if from command line",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin" : {
+      "ltbl-if" : "./index.js"
+  },
+  "keywords": [
+    "interactive",
+    "fiction"
+  ],
+  "author": "cian chambliss",
+  "license": "MIT",
+  "dependencies": {
+    "ltbl-if": "^0.0.9",
+    "simple-spellchecker": "^1.0.2"
+  }
+}

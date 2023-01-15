@@ -1,0 +1,30 @@
+cave adventure
+a cave crawling branching narative
+john public
+john@example.com
+look
+3
+the caverns
+the cave entrance
+n
+look
+branching passage
+e
+look
+east passage
+w
+w
+look
+western passage
+look
+4
+The western passage is comprised of a light colored sandstone
+drop sack
+1
+put note in sack
+1
+x sack
+The sack is made of burlap
+read note
+The key is hidden in the eastern passage
+save
