@@ -37,13 +37,17 @@ if( action ) {
             } });
 
             var commandHandle = function(command) {
-                if( ltbl.parseCommand(command) ) {
-                    rl.question('>', commandHandle );
-                } else {
-                    rl.close();
+                try {
+                    if( ltbl.parseCommand(command) ) {
+                        rl.question('>', commandHandle );
+                    } else {
+                        rl.close();
+                    }
+                } catch(err) {
+                    ltbl.createDumpFile(err);
+                    console.log("LTBL terminated. dump file was created");
                 }
             };
-
             var i;
 
             ltbl.loadGame(function(err) {
