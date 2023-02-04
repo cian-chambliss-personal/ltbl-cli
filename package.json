@@ -1,6 +1,6 @@
 {
   "name": "ltbl-cli",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Launch ltbl-if from command line",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "cian chambliss",
   "license": "MIT",
   "dependencies": {
-    "ltbl-if": "^0.0.11",
+    "ltbl-if": "^0.0.12",
     "simple-spellchecker": "^1.0.2"
   }
 }
