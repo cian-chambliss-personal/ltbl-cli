@@ -13,6 +13,8 @@ for( i = 1 ; i < process.argv.length ; ++i ) {
         action = "test";
     } else if( process.argv[i] == "tads" ) {
         action = "tads";
+    } else if( process.argv[i] == "inform" ) {
+        action = "inform";
     }
 }
 if( action ) {
@@ -87,14 +89,23 @@ if( action ) {
         }
     } else if( action == "tads" ) {
         if( actionArgs.length > 1 ) {
-            var ltbl = require("ltbl-if")({ filename : actionArgs[0]});
+            var ltbl = require("ltbl-if")({ filename : actionArgs[0],action : "tads" });
             ltbl.loadGame(function(err) {
                 ltbl.exportTads(actionArgs[1]);                
             });
         } else {
             console.log("error: tads requires a file and an output folder");
         }
+    } else if( action == "inform" ) {
+        if( actionArgs.length > 1 ) {
+            var ltbl = require("ltbl-if")({ filename : actionArgs[0], action : "inform" });
+            ltbl.loadGame(function(err) {
+                ltbl.exportInform(actionArgs[1]);                
+            });
+        } else {
+            console.log("error: inform requires an input file and an output file");
+        }
     }
 } else {
-    console.log(["usage:","ltbl-if play <filename>","ltbl-if design <filename>","ltbl-if test <input> <output>","ltbl-if tads <filename> <folder> "].join("\n"));
+    console.log(["usage:","ltbl-if play <filename>","ltbl-if design <filename>","ltbl-if test <input> <output>","ltbl-if tads <filename> <folder> ","ltbl-if inform <filename> <outputfilename> "].join("\n"));
 }
