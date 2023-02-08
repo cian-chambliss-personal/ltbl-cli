@@ -15,6 +15,8 @@ for( i = 1 ; i < process.argv.length ; ++i ) {
         action = "tads";
     } else if( process.argv[i] == "inform" ) {
         action = "inform";
+    } else if( process.argv[i] == "config" ) {
+        action = "config";
     }
 }
 if( action ) {
@@ -87,6 +89,20 @@ if( action ) {
         } else {
             console.log("error: test requires an input file and an output file");
         }
+    } else if( action == "config" ) {
+        var ltbl = require("ltbl-if")({ filename : actionArgs[0],action : "config" });
+        ltbl.config(function(err,data) {
+            var readline = require('readline');
+            var rl = readline.createInterface( process.stdin, process.stdout );            
+            var commandHandleStateMachine = function(command) {
+                if( ltbl.stateMachineCommand(command) ) {
+                    rl.question('>', commandHandleStateMachine );
+                } else {
+                    rl.close();
+                }
+            };
+            rl.question('>', commandHandleStateMachine );
+        });
     } else if( action == "tads" ) {
         if( actionArgs.length > 1 ) {
             var ltbl = require("ltbl-if")({ filename : actionArgs[0],action : "tads" });
