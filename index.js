@@ -49,7 +49,9 @@ if( action ) {
                     }
                 } catch(err) {
                     ltbl.createDumpFile(err);
-                    console.log("LTBL terminated. dump file was created");
+                    console.log("LTBL terminated. dump file was created\r\n\r\n"+err);
+                    rl.close();
+                    process.exit()
                 }
             };
             var i;
